@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regions",
+  "info": {
+    "singularName": "region",
+    "pluralName": "regions",
+    "displayName": "Region",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Code": {
+      "type": "string"
+    },
+    "Address_1": {
+      "type": "blocks"
+    },
+    "Address_2": {
+      "type": "blocks"
+    },
+    "Contact_No_1": {
+      "type": "string"
+    },
+    "Contact_No_2": {
+      "type": "string"
+    },
+    "Whatsapp_no": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string"
+    },
+    "Map": {
+      "type": "string"
+    },
+    "Email_1": {
+      "type": "email"
+    },
+    "EnableBusinessHours": {
+      "type": "boolean"
+    },
+    "GSTVATRegistration": {
+      "type": "string"
+    },
+    "BusinessHours": {
+      "type": "richtext"
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "fonte_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fonte-category.fonte-category",
+      "mappedBy": "region"
+    },
+    "fonte_sub_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fonte-sub-category.fonte-sub-category",
+      "mappedBy": "region"
+    },
+    "Email_2": {
+      "type": "email"
+    }
+  }
+}
