@@ -765,6 +765,50 @@ export interface ApiRestaurantRestaurant extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiWorkCardWorkCard extends Struct.CollectionTypeSchema {
+  collectionName: 'work_cards';
+  info: {
+    description: '';
+    displayName: 'WorkCard';
+    pluralName: 'work-cards';
+    singularName: 'work-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Capabilities: Schema.Attribute.Text;
+    CardType: Schema.Attribute.Enumeration<['Image', 'Video']> &
+      Schema.Attribute.Required;
+    ColNumber: Schema.Attribute.Integer & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Descriptions: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::work-card.work-card'
+    > &
+      Schema.Attribute.Private;
+    MainCardMedia: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    Overview: Schema.Attribute.Text;
+    ProjectTeam: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    RelatedItems: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    RowNumber: Schema.Attribute.Integer & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    Title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1283,6 +1327,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::region.region': ApiRegionRegion;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
+      'api::work-card.work-card': ApiWorkCardWorkCard;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
