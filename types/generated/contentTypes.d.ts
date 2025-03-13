@@ -802,6 +802,15 @@ export interface ApiWorkCardWorkCard extends Struct.CollectionTypeSchema {
     >;
     RowNumber: Schema.Attribute.Integer & Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
+    Text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'test';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

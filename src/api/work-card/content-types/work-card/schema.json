@@ -67,6 +67,15 @@
     },
     "ProjectTeam": {
       "type": "text"
+    },
+    "Text": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich",
+        "licenseKey": "test"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }
