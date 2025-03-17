@@ -76,6 +76,10 @@
         "licenseKey": "test"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "youtube": {
+      "type": "customField",
+      "customField": "plugin::youtube-preview-plugin.youtube"
     }
   }
 }
